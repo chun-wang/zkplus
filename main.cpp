@@ -1,5 +1,6 @@
 #include <iostream>
 #include "zookeeper.h"
+#include "zookeeperplus.h"
 
 void watcher_func(zhandle_t *zh, int type,
                   int state, const char *path, void *watcherCtx) {

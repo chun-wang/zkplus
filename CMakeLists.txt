@@ -1,16 +1,18 @@
 cmake_minimum_required(VERSION 3.6)
-project(curatorplus C CXX)
+project(zookeeperlus C CXX)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 add_definitions(-D_GLIBCXX_HAS_GTHREADS)
 
-include_directories(zookeeper/include)
-link_directories(zookeeper/lib)
+include_directories(include/zookeeper/include)
+include_directories(include)
 
-add_subdirectory(lock)
+link_directories(include/zookeeper/lib)
 
-add_executable(curatorplus main.cpp)
+add_subdirectory(src)
 
-target_link_libraries(curatorplus locker zookeeper_mt pthread)
+add_executable(zookeeperlus main.cpp)
+
+target_link_libraries(zookeeperlus zookeeper_mt pthread)
 
